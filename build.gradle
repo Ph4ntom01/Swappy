@@ -1,0 +1,29 @@
+plugins {
+
+    id 'java-library'
+}
+
+repositories {
+
+    jcenter()
+}
+
+dependencies {
+
+    // https://mvnrepository.com/artifact/com.formdev/flatlaf
+    compile group: 'com.formdev', name: 'flatlaf', version: '1.0'
+
+    // https://mvnrepository.com/artifact/commons-validator/commons-validator
+    compile group: 'commons-validator', name: 'commons-validator', version: '1.7'
+}
+
+jar {
+
+    baseName = 'Swappy'
+
+    manifest {
+        attributes 'Main-Class': 'swappy.Swappy'
+    }
+
+    from { configurations.compile.findAll { !it.name.endsWith('pom') }.collect { it.isDirectory() ? it : zipTree(it) }}
+}
