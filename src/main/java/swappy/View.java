@@ -56,7 +56,7 @@ public class View {
         boolean isDarkModeSelected = (boolean) model.getValueFromFile(EProperties.DARK_MODE);
         frame = new JFrame();
         frame.setTitle(FRAME_TITLE);
-        frame.setBounds(100, 100, 360, 160);
+        frame.setBounds(100, 100, 360, 140);
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
@@ -72,6 +72,9 @@ public class View {
         itemFlush = new JMenuItem("Flush DNS");
         menuApp.add(itemFlush);
         itemFlush.setActionCommand("flush_item");
+        itemAbout = new JMenuItem("About");
+        menuApp.add(itemAbout);
+        itemAbout.setActionCommand("about");
         menuApp.addSeparator();
         itemClose = new JMenuItem("Exit");
         menuApp.add(itemClose);
@@ -86,11 +89,6 @@ public class View {
         menuSettings.add(itemMinimize);
         itemMinimize.setSelected((boolean) model.getValueFromFile(EProperties.MINIMIZE));
         itemMinimize.setActionCommand("minimize");
-        JMenu menuAbout = new JMenu("Help");
-        menuBar.add(menuAbout);
-        itemAbout = new JMenuItem("About");
-        menuAbout.add(itemAbout);
-        itemAbout.setActionCommand("about");
 
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
