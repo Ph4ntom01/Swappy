@@ -17,7 +17,12 @@ public class Swappy {
 
     public static void main(String[] args) {
         try {
-            lookAndFeel();
+            UIManager.put("Button.arc", 999);
+            UIManager.put("Component.focusWidth", 1);
+            if (Boolean.parseBoolean(CONFIG.readValue(EProperties.DARK_MODE)))
+                UIManager.setLookAndFeel(new FlatDarculaLaf());
+            else
+                UIManager.setLookAndFeel(new FlatIntelliJLaf());
         } catch (UnsupportedLookAndFeelException e) {
             LOG.log(Level.WARNING, "Look and feel not present !");
         }
@@ -48,16 +53,6 @@ public class Swappy {
             view.iconifyGUI();
         } else {
             view.getJFrame().setVisible(true);
-        }
-    }
-
-    private static void lookAndFeel() throws UnsupportedLookAndFeelException {
-        UIManager.put("Button.arc", 999);
-        UIManager.put("Component.focusWidth", 1);
-        if (Boolean.parseBoolean(CONFIG.readValue(EProperties.DARK_MODE))) {
-            UIManager.setLookAndFeel(new FlatDarculaLaf());
-        } else {
-            UIManager.setLookAndFeel(new FlatIntelliJLaf());
         }
     }
 
