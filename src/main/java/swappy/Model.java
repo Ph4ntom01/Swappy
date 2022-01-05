@@ -158,10 +158,7 @@ public class Model {
             outputValidation = newline + inet1;
         }
         if (!validator.isValidInet4Address(inet2)) {
-            outputValidation = newline + inet2;
-        }
-        if (!validator.isValidInet4Address(inet1) && !validator.isValidInet4Address(inet2)) {
-            outputValidation = newline + inet1 + newline + inet2;
+            outputValidation = outputValidation + newline + inet2;
         }
         return outputValidation;
     }
