@@ -37,6 +37,7 @@ public class Swappy {
         view.getItemDarkMode().addActionListener(controller);
         view.getItemMinimize().addActionListener(controller);
         view.getItemFlush().addActionListener(controller);
+        view.getItemReset().addActionListener(controller);
         view.getItemClose().addActionListener(controller);
         view.getItemAbout().addActionListener(controller);
         view.getSetWindowsDns().addActionListener(controller);
@@ -47,6 +48,7 @@ public class Swappy {
         view.getTrayIcon().addMouseMotionListener(controller);
         view.getSwapItem().addActionListener(controller);
         view.getFlushItem().addActionListener(controller);
+        view.getResetItem().addActionListener(controller);
         view.getOpenItem().addActionListener(controller);
         view.getCloseItem().addActionListener(controller);
         if (Boolean.parseBoolean(CONFIG.readValue(EProperties.MINIMIZE))) {
