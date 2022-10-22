@@ -38,6 +38,7 @@ public class View {
     private JCheckBoxMenuItem itemDarkMode;
     private JCheckBoxMenuItem itemMinimize;
     private JMenuItem itemFlush;
+    private JMenuItem itemReset;
     private JMenuItem itemClose;
     private JMenuItem itemAbout;
     private JTextField tfWindowsDns;
@@ -49,6 +50,7 @@ public class View {
     private TrayIcon trayIcon;
     private MenuItem swapItem;
     private MenuItem flushItem;
+    private MenuItem resetItem;
     private MenuItem openItem;
     private MenuItem closeItem;
 
@@ -56,7 +58,7 @@ public class View {
         boolean isDarkModeSelected = (boolean) model.getValueFromFile(EProperties.DARK_MODE);
         frame = new JFrame();
         frame.setTitle(FRAME_TITLE);
-        frame.setBounds(100, 100, 360, 140);
+        frame.setBounds(100, 100, 360, 143);
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
@@ -69,9 +71,12 @@ public class View {
         frame.setJMenuBar(menuBar);
         JMenu menuApp = new JMenu("Application");
         menuBar.add(menuApp);
-        itemFlush = new JMenuItem("Flush DNS");
+        itemFlush = new JMenuItem("Flush");
         menuApp.add(itemFlush);
         itemFlush.setActionCommand("flush_item");
+        itemReset = new JMenuItem("Reset");
+        menuApp.add(itemReset);
+        itemReset.setActionCommand("reset_item");
         itemAbout = new JMenuItem("About");
         menuApp.add(itemAbout);
         itemAbout.setActionCommand("about");
@@ -192,13 +197,16 @@ public class View {
         openItem = new MenuItem("Open");
         swapItem = new MenuItem("Swap");
         flushItem = new MenuItem("Flush");
+        resetItem = new MenuItem("Reset");
         closeItem = new MenuItem("Exit");
         swapItem.setActionCommand("swap_item");
         flushItem.setActionCommand("flush_item");
+        resetItem.setActionCommand("reset_item");
         openItem.setActionCommand("open_item");
         closeItem.setActionCommand("exit_item");
         defaultPopup.add(swapItem);
         defaultPopup.add(flushItem);
+        defaultPopup.add(resetItem);
         defaultPopup.add(openItem);
         defaultPopup.addSeparator();
         defaultPopup.add(closeItem);
@@ -243,6 +251,10 @@ public class View {
         return itemFlush;
     }
 
+    protected JMenuItem getItemReset() {
+        return itemReset;
+    }
+
     protected JMenuItem getItemClose() {
         return itemClose;
     }
@@ -285,6 +297,10 @@ public class View {
 
     protected MenuItem getFlushItem() {
         return flushItem;
+    }
+
+    protected MenuItem getResetItem() {
+        return resetItem;
     }
 
     protected MenuItem getOpenItem() {
