@@ -22,6 +22,8 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("flush_item")) {
             model.flushWindowsDNS(view);
+        } else if (e.getActionCommand().equals("reset_item")) {
+            model.resetWindowsDNS(view);
         } else if (e.getActionCommand().equals("dark_mode")) {
             model.changeTheme(view);
         } else if (e.getActionCommand().equals("minimize")) {
