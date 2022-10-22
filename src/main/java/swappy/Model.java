@@ -132,6 +132,21 @@ public class Model {
     }
 
     /**
+     * Reset the Windows DNS.
+     * 
+     * @param windowsDns Chosen DNS value.
+     */
+    protected void resetWindowsDNS(View view) {
+        try {
+            flushWindowsDNS(view);
+            Runtime.getRuntime().exec("netsh interface ipv4 set dnsservers name=" + Swappy.getConfig().readValue(EProperties.NET_ADAPTER) + " source=dhcp");
+        } catch (IOException e) {
+            LOG.log(Level.WARNING, "An error occurred while resetting the DNS !");
+            JOptionPane.showMessageDialog(view.getJFrame(), "An error occurred while resetting the DNS !", "DNS Reset Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
      * Flushes the DNS resolver cache.
      */
     protected void flushWindowsDNS(View view) {
