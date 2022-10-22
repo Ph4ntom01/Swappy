@@ -15,7 +15,7 @@ repositories {
 dependencies {
 
     // https://mvnrepository.com/artifact/com.formdev/flatlaf
-    compile group: 'com.formdev', name: 'flatlaf', version: '1.6.5'
+    compile group: 'com.formdev', name: 'flatlaf', version: '2.6'
 
     // https://mvnrepository.com/artifact/commons-validator/commons-validator
     compile group: 'commons-validator', name: 'commons-validator', version: '1.7'
